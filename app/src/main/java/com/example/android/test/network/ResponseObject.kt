@@ -25,14 +25,14 @@ data class Button(
 
 
 data class Vacancies(
-    val id: String?,
+    val id: String,
     val looking_number: Int?,
     val title: String,
     val address: Address,
     val company: String,
     val experience: Experience,
     val publishedDate: String,
-    val isFavorite: Boolean,
+    var isFavorite: Boolean,
     val salary: Salary,
     val schedules: List<String>,
     val appliedNumber: Int?,

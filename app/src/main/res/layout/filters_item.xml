@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/filterBackground"
+        android:layout_width="132dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/filter_card">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
+                <ImageView
+                    android:id="@+id/filterEllipse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/filter_ellipse"
+                    android:tint="@color/dark_green">
+                </ImageView>
+                <ImageView
+                    android:id="@+id/filterIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    tools:src="@drawable/ic_temporary_job">
+                </ImageView>
+            </FrameLayout>
+            <TextView
+                android:id="@+id/filterTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="8dp"
+                tools:text="ТекстТекстТекстТекстТекст"
+                android:textColor="@color/white"
+                android:layout_marginStart="8dp">
+            </TextView>
+            <TextView
+                android:id="@+id/filterButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Текст"
+                android:paddingEnd="8dp"
+                android:paddingBottom="8dp"
+                android:textColor="@color/green"
+                android:layout_marginStart="8dp">
+            </TextView>
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>

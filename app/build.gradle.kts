@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
+    id("androidx.navigation.safeargs")
     id("kotlin-parcelize")
 }
 
@@ -43,7 +44,7 @@ android {
 dependencies {
 
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
     implementation("androidx.constraintlayout:constraintlayout:2.2.0-alpha14")
     implementation(libs.androidx.appcompat)
     //implementation(libs.androidx.material3)
@@ -65,6 +66,9 @@ dependencies {
 
     implementation ("com.squareup.moshi:moshi:1.15.1")
     implementation ("com.squareup.moshi:moshi-kotlin:1.15.1")
-//    debugImplementation(libs.androidx.ui.tooling)
-//    debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation("io.github.d00mch:delegateadapter:4.2")
+
+    implementation("androidx.room:room-runtime:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
 }
