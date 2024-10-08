@@ -1,8 +1,10 @@
 package com.example.android.test.favourites
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.android.test.R
 import com.example.android.test.database.VacancyDao
 import com.example.android.test.database.VacancyEntity
 import com.example.android.test.network.Address
@@ -23,8 +25,21 @@ class FavouritesViewModel(val dataSource: VacancyDao) : ViewModel() {
     val vacancies: LiveData<List<Vacancies>>
         get() = _vacancies
 
+    private var _vacanciesCount = MutableLiveData<String>()
+    val vacanciesCount: LiveData<String>
+        get() = _vacanciesCount
+
     init {
         getResponseObject()
+    }
+
+    fun buildVacanciesCountString(context: Context): String {
+        val res = when (_vacancies.value?.let { filterVacancies(it).size }) {
+            1 -> context.getString(R.string.vacancy_1)
+            2, 3, 4 -> context.getString(R.string.vacancy_2_4)
+            else -> context.getString(R.string.vacancy_5_0)
+        }
+        return _vacancies.value?.let { filterVacancies(it).size }.toString() + " " + res
     }
 
     private fun getResponseObject() {
@@ -34,7 +49,7 @@ class FavouritesViewModel(val dataSource: VacancyDao) : ViewModel() {
         }
     }
 
-    fun updateVacanciesList(){
+    fun updateVacanciesList() {
         getResponseObject()
     }
 
@@ -88,7 +103,7 @@ class FavouritesViewModel(val dataSource: VacancyDao) : ViewModel() {
     fun onFavouriteMarkClick(id: String) {
         for (i in 0..(_vacancies.value?.size?.minus(1) ?: 0)) {
             if (_vacancies.value?.get(i)?.id == id) {
-                if(_vacancies.value?.get(i)?.isFavorite == true) {
+                if (_vacancies.value?.get(i)?.isFavorite == true) {
                     _vacancies.value?.get(i)?.isFavorite = false
                 } else {
                     _vacancies.value?.get(i)?.isFavorite = true

@@ -18,8 +18,6 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         navView.labelVisibilityMode = NavigationBarView.LABEL_VISIBILITY_LABELED
         navView.setupWithNavController(navController)
-
-        //navView.menu.getItem(R.id.favouritesFragment).setIcon(R.drawable.ic_star)
     }
 }
 

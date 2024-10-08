@@ -63,7 +63,10 @@ class FavouritesFragment : Fragment() {
         viewModel.vacancies.observe(viewLifecycleOwner, Observer{
             Log.i("NETWORK", it.toString())
             vacancyAdapter.swapData(viewModel.filterVacancies(it))
+            binding.vacanciesCount.text = viewModel.buildVacanciesCountString(requireContext())
         })
+
+
 
         return binding.root
     }

@@ -50,12 +50,24 @@ class SearchFragment : Fragment() {
                 }), ButtonDelegateAdapter(object : ButtonActionListener {
                 override fun onButtonClick() {
                     viewModel.onBigBlueButtonClick()
+                    binding.textView2.text = viewModel.buildVacanciesCountString(requireContext())
+                    binding.resViewFilters.visibility = View.GONE
+                    binding.textView.visibility = View.GONE
+                    binding.textView2.visibility = View.VISIBLE
+                    binding.textView3.visibility = View.VISIBLE
                 }
             })
             )
         binding.recyclerView.adapter = vacancyAdapter
         viewModel.vacancies.observe(viewLifecycleOwner, Observer {
             vacancyAdapter.swapData(viewModel.buildListVacancies())
+            if(viewModel.isBigBlueButtonClicked.value == true){
+                binding.textView2.text = viewModel.buildVacanciesCountString(requireContext())
+                binding.resViewFilters.visibility = View.GONE
+                binding.textView.visibility = View.GONE
+                binding.textView2.visibility = View.VISIBLE
+                binding.textView3.visibility = View.VISIBLE
+            }
         })
         val offersAdapter = CompositeDelegateAdapter(
             FiltersDelegateAdapter()

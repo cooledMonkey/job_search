@@ -1,7 +1,16 @@
 <resources>
     <string name="app_name">Test</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="response_text">Откликнуться</string>
     <string name="favourites_title">Избранное</string>
+    <string name="now_looking">Сейчас смотрит </string>
+    <string name="looking_for_def"> человек</string>
+    <string name="looking_for_2_4"> человека</string>
+    <string name="job_key_words">Должность, ключевые слова</string>
+    <string name="vacancies_for_you">Вакансии для вас</string>
+    <string name="more">Ещё </string>
+    <string name="vacancy_1"> вакансия</string>
+    <string name="vacancy_2_4"> вакансии</string>
+    <string name="vacancy_5_0"> вакансий</string>
+    <string name="sort_text">По соответствию</string>
 </resources>

@@ -23,7 +23,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/filter_ellipse"
-                    android:tint="@color/dark_green">
+                    app:tint="@color/dark_green">
                 </ImageView>
                 <ImageView
                     android:id="@+id/filterIcon"
@@ -38,7 +38,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingEnd="8dp"
-                tools:text="ТекстТекстТекстТекстТекст"
+                android:textSize="14sp"
+                android:fontFamily="@font/sf_pro_display"
+                tools:text="Поднять резюме в поиске"
                 android:textColor="@color/white"
                 android:layout_marginStart="8dp">
             </TextView>
@@ -46,7 +48,9 @@
                 android:id="@+id/filterButtonText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Текст"
+                tools:text="Поднять"
+                android:fontFamily="@font/sf_pro_display"
+                android:textSize="14sp"
                 android:paddingEnd="8dp"
                 android:paddingBottom="8dp"
                 android:textColor="@color/green"

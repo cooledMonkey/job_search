@@ -1,22 +1,25 @@
 package com.example.android.test.search
 
-import android.view.View
+import com.example.android.test.R
 import com.example.android.test.databinding.MoreVacanciesButtonItemBinding
-import com.example.android.test.network.Vacancies
 import com.livermor.delegateadapter.delegate.ViewBindingDelegateAdapter
 
-class ButtonDelegateAdapter(private val clickListener: ButtonActionListener):
-    ViewBindingDelegateAdapter<MoreButton, MoreVacanciesButtonItemBinding>(MoreVacanciesButtonItemBinding::inflate) {
+class ButtonDelegateAdapter(private val clickListener: ButtonActionListener) :
+    ViewBindingDelegateAdapter<MoreButton, MoreVacanciesButtonItemBinding>(
+        MoreVacanciesButtonItemBinding::inflate
+    ) {
 
     override fun MoreVacanciesButtonItemBinding.onBind(item: MoreButton) {
-        var buttonText = ""
-        when(item.itemsCount%10) {
-                1 -> buttonText = "Еще " + item.itemsCount.toString() + " вакансия"
-                2, 3, 4 -> buttonText = "Еще " + item.itemsCount.toString() + " вакансии"
-                else -> buttonText = "Еще " + item.itemsCount.toString() + " вакансий"
-            }
+        val moreString = root.context.getString(R.string.more)
+        val buttonText = when (item.itemsCount % 10) {
+            1 -> moreString + " " + item.itemsCount.toString() + " " + root.context.getString(R.string.vacancy_1)
+            2, 3, 4 -> moreString + " " + item.itemsCount.toString() + " " + root.context.getString(
+                R.string.vacancy_2_4
+            )
+            else -> moreString + " " + item.itemsCount.toString() + " " + root.context.getString(R.string.vacancy_5_0)
+        }
         bigGreenButton.text = buttonText
-        bigGreenButton.setOnClickListener{
+        bigGreenButton.setOnClickListener {
             clickListener.onButtonClick()
         }
     }

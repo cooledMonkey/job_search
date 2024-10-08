@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <androidx.appcompat.widget.AppCompatButton xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/big_green_button"
@@ -11,8 +12,9 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/big_blue_button"
         android:backgroundTint="@color/blue"
+        android:fontFamily="@font/sf_pro_display"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="14dp"
+        android:textSize="16sp"
         tools:text="Еще 143 вакансии" />
 </layout>

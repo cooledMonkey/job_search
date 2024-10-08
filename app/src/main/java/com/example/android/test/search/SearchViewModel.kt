@@ -1,9 +1,11 @@
 package com.example.android.test.search
 
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.android.test.R
 import com.example.android.test.database.VacancyDao
 import com.example.android.test.database.VacancyEntity
 import com.example.android.test.network.Address
@@ -61,6 +63,15 @@ class SearchViewModel(val dataSource: VacancyDao) : ViewModel() {
     fun onBigBlueButtonClick() {
         _isBigBlueButtonClicked.value = true
         buildListVacancies().toList()
+    }
+
+    fun buildVacanciesCountString(context: Context): String {
+        val res = when (_vacancies.value?.let { (it).size }) {
+            1 -> context.getString(R.string.vacancy_1)
+            2, 3, 4 -> context.getString(R.string.vacancy_2_4)
+            else -> context.getString(R.string.vacancy_5_0)
+        }
+        return _vacancies.value?.let { (it).size }.toString() + " " + res
     }
 
     fun buildListVacancies(): MutableList<Any> {
